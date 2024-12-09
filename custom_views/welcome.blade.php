@@ -4,7 +4,6 @@
     <section class="shop-left">
         <div class="container">
             <div class="shop-offcanvas-container">
-
                 <div class="shop-offcanvas-right me-4">
                     <div class="card">
                         <div class="card-header border-0">
