@@ -1,0 +1,99 @@
+
+.services{
+    padding: 100px 0 100px;
+}
+.services-2{
+    padding: 0px 0 100px;
+}
+.services-single{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.services-single-icon{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #F7FAFA;
+    color: var(--black-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.services-single-content h6{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* ----------------------------------------
+Responsive
+------------------------------------------- */
+/* Medium screen  */
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    .services-single {
+        gap: 10px;
+    }
+    .services-single-icon {
+        max-width: 70px;
+        height: 70px;
+    }
+    .services-single-icon img{
+        width: 35px;
+    }
+    .services-single-content h6 {
+        font-size: 18px;
+    }
+    .services-single-content p {
+        font-size: 14px;
+    }
+}
+
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .services .d-flex{
+        display: block !important;
+    }
+    .services-single {
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .services {
+        padding: 60px 0 30px;
+    }
+
+    .services-2 {
+        padding: 0px 0 60px;
+    }
+    .services-2 .justify-content-end {
+        justify-content: center !important;
+    }
+}
+
+
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px){
+    .services .d-flex{
+        display: block !important;
+    }
+    .services-single {
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .services {
+        padding: 60px 0 30px;
+    }
+
+    .services-2 {
+        padding: 0px 0 40px;
+    }
+    .services-2 .justify-content-center {
+        justify-content: flex-start !important;
+    }
+    .services-2 .justify-content-end {
+        justify-content: flex-start !important;
+    }
+    
+}
+/* ----------------------------------------
+Responsive
+------------------------------------------- */

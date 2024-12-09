@@ -1,0 +1,266 @@
+.footer-style-1 {
+    padding-top: 80px;
+    position: relative;
+    background: #FAFAFA;
+}
+.footer-top{
+    padding: 0 0 80px;
+}
+.logo-widget{
+    position: relative;
+    margin-right: 60px;
+}
+.footer-logo{
+    margin-bottom: 19px;
+}
+.logo-widget-inner .social-area{
+    margin-top: 15px;
+}
+.footer-location .location, .footer-location .hot-line{
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 6px;
+}
+.footer-location p{
+    color: var(--text-color-2);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.footer-location p strong{
+    color: var(--black-color);
+}
+.footer-location p a{
+    color: var(--text-color-2);
+}
+.footer-location p a:hover{
+    color: var(--secondary-color);
+}
+.link-widget{
+    margin-left: 70px;
+}
+.company-widget{
+    margin-left: 20px;
+}
+.trade-widget{
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+.footer-widget h6{
+    color: var(--black-color);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 55px;
+    margin-bottom: 5px;
+}
+ul.footer-widget-list li{
+    display: flex;
+    align-items: center;
+}
+ul.footer-widget-list li p:first-child{
+    max-width: 169px;
+    width: 100%;
+}
+ul.footer-widget-list li{
+    margin-bottom: 16px;
+}
+ul.footer-widget-list a {
+    color: var(--text-color-2);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+}
+ul.footer-widget-list a:hover {
+    color: var(--secondary-color);
+}
+ul.footer-widget-list li p{
+    line-height: 18px;
+}
+.newslatter-widget {
+    margin-left: 60px;
+}
+.footer-newsletter-form{
+    position: relative;
+    margin: 25px 0 25px;
+}
+.footer-newsletter p a{
+    display: contents;
+    color: var(--secondary-color);
+}
+.footer-newsletter-form input{
+    width: 100%;
+    border: 1px solid #EBF2F6;
+    background-color: var(--white-color);
+    line-height: 16px;
+    padding: 13px 20px;
+}
+.footer-newsletter-form input::placeholder{
+    color: #aeaeae;
+}
+.footer-newsletter-form button{
+    background-color: var(--secondary-color);
+    padding: 13px 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--white-color );
+}
+
+.bank-card{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.footer-copyright{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-top: 1px solid rgba(34, 34, 34, 0.10);
+}
+.footer-copyright p a{
+    font-size: 16px;
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+
+/* ----------------------------------------
+Responsive
+------------------------------------------- */
+@media only screen and (max-width: 1440px){
+    .link-widget {
+        margin-left: 50px;
+    }
+    .footer-widget h6 {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (min-width: 1320px) and (max-width: 1424px){
+    .link-widget {
+        margin-left: 50px;
+    }
+    .footer-widget h6 {
+        font-size: 19px;
+    }
+}
+
+
+/* Large screen  */
+@media only screen and (min-width: 1200px) and (max-width: 1319px) {
+    .footer-style-1 {
+        padding-top: 60px;
+    }
+    .footer-top {
+        padding: 0 0 50px;
+    }
+    .footer-location p strong {
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .link-widget {
+        margin-left: 50px;
+    }
+    .company-widget {
+        margin-left: 20px;
+    }
+    .trade-widget {
+        margin-left: 10px;
+        /*margin-right: -20px;*/
+    }
+    .newslatter-widget {
+        margin-left: 65px;
+    }
+    .footer-widget h6 {
+        font-size: 18px;
+        line-height: 55px;
+    }
+
+}
+
+/* Medium screen  */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .footer-style-1 {
+        padding-top: 60px;
+    }
+    .logo-widget-inner {
+        margin-right: 0;
+    }
+    .link-widget {
+        margin-left: 0;
+    }
+    .newslatter-widget {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+
+}
+
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .logo-widget-inner {
+        margin-right: 0;
+    }
+    .trade-widget {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .newslatter-widget {
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+    .footer-widget h6 {
+        color: var(--black-color);
+        font-size: 22px;
+    }
+    .footer-media ul {
+        margin-top: 20px;
+    }
+}
+
+
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px){
+    .footer-style-1 {
+        padding-top: 60px;
+    }
+    .footer-media ul {
+        margin-top: 20px;
+    }
+    .company-widget, .trade-widget, .link-widget, .newslatter-widget {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    .footer-top {
+        padding: 0 0 50px;
+    }
+
+
+    /* copyright */
+    .footer-copyright {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .footer-copyright .copyright-navigation {
+        gap: 17px;
+    }
+
+    .bank-card {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .bank-card span{
+        display: none;
+    }
+}
+/* ----------------------------------------
+Responsive
+------------------------------------------- */

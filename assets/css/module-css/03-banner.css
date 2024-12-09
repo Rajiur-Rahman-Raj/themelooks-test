@@ -1,0 +1,494 @@
+/* banner-section */
+.banner-section{
+    position: relative;
+	overflow: hidden;
+    padding-top: 80px;
+    background: url('../../images/banner/banner-bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.banner-left-content{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: -40px;
+}
+.banner-section .content-box{
+	position: relative;
+	z-index: 5;
+}
+
+.banner-section .content-box h1{
+	display: block;
+	margin-bottom: 25px;
+	opacity: 0;
+    transform: translateX(100px);
+    transition: all 2000ms ease;
+}
+
+.banner-section .swiper-slide.swiper-slide-active .content-box h1{
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 1500ms;
+}
+
+.banner-section .content-box h6{
+    display: inline-block;
+	margin-bottom: 35px;
+    padding: 13px 22px;
+    border-radius: 50px;
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    box-shadow: 0px 6px 40px 5px rgba(34, 34, 34, 0.05);
+
+	opacity: 0;
+    transform: translateX(-100px);
+    transition: all 2000ms ease;
+}
+
+.banner-section .swiper-slide.swiper-slide-active .content-box h6{
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 1500ms;
+}
+
+.banner-section .content-box p{
+	display: block;
+	margin-bottom: 0px;
+	opacity: 0;
+    transform: translateX(-100px);
+    transition: all 2000ms ease;
+}
+
+.banner-section .swiper-slide.swiper-slide-active .content-box p{
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 1500ms;
+}
+
+.banner-section .link-box {
+	transform: scaleY(0);
+	transition: all 800ms ease;
+	transition-delay: 2000ms;
+	transform-origin: bottom;
+
+}
+.banner-section .swiper-slide-active .link-box {
+	transform: scaleY(1);
+}
+
+.banner-section .content-box .link-box{
+	margin-top: 40px;
+}
+
+.banner-right-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.banner-section-one__image {
+	opacity: 0;
+    transform: translateX(250px);
+    transition: all 3000ms ease;
+}
+.banner-section .swiper-slide.swiper-slide-active .banner-section-one__image{
+    opacity: 1;
+    transform: translateX(60px);
+    transition-delay: 1300ms;
+}
+.banner-image-container{
+    position: relative;
+}
+.banner-image-container .image-one{
+    opacity: 0;
+    transform: rotate(45deg);
+    transition: all 3000ms ease;
+}
+.banner-section .swiper-slide.swiper-slide-active .banner-image-container .image-one{
+    opacity: 1;
+    transform: rotate(0);
+    transition: all 3000ms ease;
+}
+.banner-image-container .image-two{
+    position: relative;
+    bottom: 75px;
+    opacity: 0;
+    transform: rotate(-45deg);
+    transition: all 3000ms ease;
+    z-index: -1;
+}
+.banner-section .swiper-slide.swiper-slide-active .banner-image-container .image-two{
+    opacity: 1;
+    transform: rotate(0);
+    transition: all 3000ms ease;
+}
+.round-box-content {
+    position: absolute;
+    top: 27%;
+    left: -36px;
+    filter: drop-shadow(0px 10px 70px rgba(0, 0, 0, 0.08));
+    z-index: 1;
+
+    opacity: 0;
+    transform: rotate(90deg);
+    transition: all 3000ms ease;
+}
+.banner-section .swiper-slide.swiper-slide-active .round-box-content{
+    opacity: 1;
+    transform: rotate(0);
+    transition: all 3000ms ease;
+}
+/* ----------------------------------------
+banner one
+-------------------------------------------*/
+
+/* ----------------------------------------
+banner two
+-------------------------------------------*/
+.banner-section-two{
+    padding-top: 0;
+    background-size: cover;
+}
+.banner-section-two__image {
+    position: absolute;
+    bottom: 0;
+	display: flex;
+	justify-content: flex-end;
+
+	opacity: 0;
+    transform: translateY(250px);
+    transition: all 3000ms ease;
+}
+.banner-section-two .content-box {
+    padding: 100px 0 255px;
+    margin-left: 0;
+    position: relative;
+    z-index: 5;
+}
+.banner-section-two .content-box h6{
+    display: inline-flex;
+    align-items: center;
+}
+.banner-section-two .content-box h6 a{
+    color: var(--secondary-color);
+    margin-right: 5px;
+    font-size: 20px;
+}
+.banner-section-two .content-box h1{
+    font-size: 66px;
+}
+.banner-section .swiper-slide.swiper-slide-active .banner-section-two__image{
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1300ms;
+}
+
+.banner-section-two .slider__pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.banner-section-two .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+	background: #F2D2A9;
+    border: 2px solid #F2D2A9;
+	opacity: 1;
+}
+.banner-section-two .swiper-pagination-bullet-active {
+	position: relative;
+    opacity: 1;
+    background: var(--secondary-color);
+	border: 2px solid var(--secondary-color);
+}
+/* ----------------------------------------
+banner two
+-------------------------------------------*/
+
+/* ----------------------------------------
+banner three
+-------------------------------------------*/
+.banner-3{
+    padding-top: 30px;
+}
+.banner-3-left-container{
+    background: url('../../images/banner/banner-03-bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 8px;
+}
+.banner-3-carousol-content {
+    width: 100%;
+    padding: 85px 20px 51px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.banner-3-carousol-content .content{
+    max-width: 394px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.banner-3-carousol-content .content h6{
+    color: var(--secondary-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.banner-3-carousol-content .content h3{
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 56px;
+    margin: 16px 0 24px;
+}
+.banner-3-carousol-content .content .btn-1{
+    margin-top: 30px;
+    color: var(--secondary-color);
+    font-size: 17px;
+    font-weight: 500;
+    border: 1px solid var(--secondary-color);
+    background-color: transparent;
+    padding: 10px 30px;
+}
+.banner-3-carousol-content .content .btn-1 span{
+    background-color: var(--secondary-color);
+}
+.banner-3-carousol-content .image{
+    max-width: 455px;
+    width: 100%;
+}
+
+/*  */
+.banner-3-left-container .slider__pagination2 {
+    text-align: center;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.banner-3-left-container .swiper-pagination-bullet {
+    width: 13px;
+    height: 13px;
+    opacity: .1;
+}
+.banner-3-left-container .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: var(--secondary-color);
+    width: 16px;
+    height: 16px;
+}
+
+.banner-3-right-container{
+    display: flex;
+    align-items: center;
+    padding: 100px 30px 100px 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+.banner-3-right-container:last-child{
+    margin-bottom: 0;
+}
+.banner-3-right-top{
+    background: url('../../images/banner/banner-watch.jpg') no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.banner-3-right-bottom{
+    background: url('../../images/banner/banner-skeaker.jpg') no-repeat;
+    background-size: cover;
+    background-position: center center;
+    justify-content: flex-end;
+}
+.banner-3-right-container .content h5{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    margin: 8px 0 15px 0;
+}
+.banner-3-right-container .content span{
+    color: var(--secondary-color);
+}
+/* ----------------------------------------
+banner three
+-------------------------------------------*/
+
+/* common-banner */
+.common-banner{
+    width: 100%;
+    height: auto;
+}
+.bg-layer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.common-banner-content{
+    height: 343px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.common-banner-content-inner{
+    text-align: center;
+}
+.breadcrumb{
+    position: relative;
+    margin-bottom: 0;
+    justify-content: center;
+    margin-top: 30px;
+}
+.breadcrumb-item.active{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+.breadcrumb-item a{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--black-color);
+}
+.breadcrumb-item + .breadcrumb-item {
+    padding-left: 0.5rem;
+}
+/* common-banner */
+
+
+/* ----------------------------------------
+Responsive
+------------------------------------------- */
+@media only screen and (max-width: 1500px){
+
+}
+
+@media only screen and (max-width: 1350px){
+    .banner-section .content-box h1{
+        font-size: 52px;
+        line-height: 66px;
+    }
+
+}
+
+@media only screen and (max-width: 1200px){
+
+}
+
+/* Medium screen  */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .banner-section .content-box h1 {
+        font-size: 42px;
+        line-height: 54px;
+    }
+    .banner-section-two__image {
+        width: 450px;
+        justify-content: flex-start;
+    }
+    .banner-section-two .content-box {
+        padding: 100px 0 100px;
+    }
+    .banner-section .content-box h1 {
+        font-size: 32px;
+        line-height: 44px;
+    }
+
+    .bg-layer {
+        background-position: center center !important;
+    }
+
+}
+
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .banner-right-container {
+        justify-content: flex-end;
+    }
+    .banner-section .content-box h1 {
+        font-size: 42px;
+        line-height: 54px;
+    }
+    .banner-section-one__image{
+        display: none;
+    }
+
+    /* banner 02 */
+    .banner-section-two__image{
+        display: none;
+    }
+    .banner-section-two .content-box {
+        padding: 100px 0 100px;
+        text-align: center;
+    }
+
+    /* common banner */
+    .common-banner .bg-layer {
+        background-position: center !important;
+    }
+}
+
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px){
+    .banner-section .content-box {
+        text-align: center;
+    }
+    .banner-left-content {
+        margin-top: 0;
+    }
+    .banner-section .content-box h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .banner-section .content-box h6{
+        font-size: 14px;
+    }
+    .banner-right-container {
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .banner-section-one__image{
+        display: none;
+    }
+
+    /* banner 02 */
+    .banner-section-two__image{
+        display: none;
+    }
+    .banner-section-two .content-box {
+        padding: 80px 0 80px;
+        margin-left: 0;
+    }
+    .banner-section-two .content-box h1 {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .banner-section-two .content-box .btn-1 {
+        padding: 11px 25px;
+        font-size: 14px;
+    }
+
+    /* common banner */
+    .common-banner-content {
+        height: 260px;
+    }
+    .common-banner-content h2{
+        font-size: 34px;
+    }
+    .breadcrumb {
+        margin-top: 0px;
+    }
+}
+/* ----------------------------------------
+Responsive
+------------------------------------------- */

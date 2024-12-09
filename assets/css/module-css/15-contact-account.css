@@ -1,0 +1,183 @@
+.my-account{
+    padding: 120px 0 120px;
+}
+.my-account-right-container{
+    margin-left: 30px;
+    margin-right: 80px;
+}
+.my-account-tab .quote-tab__button-inner h6 {
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+.my-account-tab .quote-tab__button {
+    width: 150px;
+}
+.my-account-tab .quote-tab .tab-content-box-item {
+    padding: 20px 0 0px 0;
+}
+.create-account h5{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    margin-bottom: 16px;
+}
+.create-account-media ul{
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+.create-account-media ul li a{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background: #EDF2F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-account-form .cmn-input{
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #E0E0E0;
+    padding: 16px 16px;
+}
+.my-account-form .cmn-input::placeholder{
+    color: #A3A3A3;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.password-box{
+    position: relative;
+}
+.password-box i{
+    position: absolute;
+    top: 33px;
+    right: 16px;
+    cursor: pointer;
+}
+.forget-pw a{
+    margin-top: 24px;
+}
+.my-account-agree{
+    margin-bottom: 30px;
+}
+.my-account-agree .label-text a{
+    color: var(--secondary-color);
+}
+
+/* contact page */
+.contact-page{
+    padding: 120px 0 120px;
+}
+.contact-page-title{
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 42px;
+    margin-bottom: 20px;
+}
+.contact-page-right-container h6{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-bottom: 15px;
+}
+.contact-page-right-container .contact-page-right-time h6{
+    margin-bottom: 0;
+}
+.contact-page-right-container h6 span{
+    display: contents;
+    font-size: 16px;
+    color: var(--text-color-2);
+}
+.contact-page-right-container h6 a{
+    font-size: 16px;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 550px;
+    margin-bottom: -8px;
+}
+/* contact page */
+
+/* ----------------------------------------
+Responsive
+------------------------------------------- */
+/* Large screen  */
+@media only screen and (min-width: 1200px) and (max-width: 1319px) {
+    
+}
+/* Medium screen  */
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    .contact-page {
+        padding: 80px 0 80px;
+    }
+    .contact-page-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .my-account {
+        padding: 80px 0 80px;
+    }
+
+}
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .contact-page {
+        padding: 80px 0 80px;
+    }
+    .contact-page-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    .contact-page-right-container {
+        margin-top: 50px;
+    }
+
+    /* my account */
+    .my-account {
+        padding: 80px 0 80px;
+    }
+    .my-account-image img{
+        width: 100%;
+    }
+    .my-account-right-container {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 50px;
+    }
+}
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px){
+    .contact-page {
+        padding: 60px 0 60px;
+    }
+    .contact-page-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .contact-page-right-container {
+        margin-top: 50px;
+    }
+
+    /* my account */
+    .my-account {
+        padding: 80px 0 80px;
+    }
+    .my-account-image img{
+        width: 100%;
+    }
+    .my-account-right-container {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 50px;
+    }
+}
+/* ----------------------------------------
+Responsive
+------------------------------------------- */

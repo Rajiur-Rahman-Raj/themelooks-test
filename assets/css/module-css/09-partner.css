@@ -1,0 +1,62 @@
+.partner{
+    background-color: var(--black-color);
+    padding: 55px 0 55px;
+    margin-top: 120px;
+}
+.about-partner{
+    margin-top: 0;
+}
+.partner-carousol {
+    max-width: 1650px;
+    margin-right: -70px;
+    margin-left: -70px;
+}
+.partner-logo{
+    position: relative;
+    text-align: center;
+}
+.hide-client{
+    position: absolute ;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.partner-item:hover .hide-client{
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+/* -----------------------------------------------------------------
+Responsive
+------------------------------------------------------------------- */
+/* Medium screen  */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .partner-carousol {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .partner-carousol {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px){
+    .partner {
+        padding: 40px 0 40px;
+    }
+}
+/* -----------------------------------------------------------------
+Responsive
+------------------------------------------------------------------- */

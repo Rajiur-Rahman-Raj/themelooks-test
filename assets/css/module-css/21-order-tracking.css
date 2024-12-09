@@ -1,0 +1,99 @@
+.order-tracking{
+    padding: 100px 0 100px;
+}
+.order-wrapper{
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 30px 70px rgba(1,15,28,.1);
+    padding: 42px 50px;
+}
+label.required:after {
+    color: var(--bs-danger);
+    content: "*";
+    margin-left: .25rem;
+}
+.trakingLebel{
+    font-size: 20px;
+    font-weight: 500;
+}
+.order-wrapper .form-control {
+    display: block;
+    width: 100%;
+    padding: 16px 16px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--black-color);
+}
+
+.tracking-wrapper{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 30px 70px rgba(1,15,28,.1);
+    padding: 20px 20px;
+}
+
+.order-info-box{
+    display: flex;
+    align-items: flex-start;
+    gap: 150px;
+}
+.order-info-list ul li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.order-info-list ul li p{
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.order-info-list ul li span{
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.order-table {
+    margin-top: 20px;
+}
+/*td[data-label="Gateway"] {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
+td[data-label="Gateway"] img {
+    max-width: 100%;
+    height: auto;
+}
+
+.table-info{
+    margin-top: 30px;
+}
+.table-info ul li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    gap: 5px;
+}
+.table-info ul li p{
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.table-info ul li span{
+    font-weight: 500;
+    font-size: 15px;
+    color: #666b70;
+}
+
+.shipping-info ul li span{
+    background-color: var(--secondary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--white-color);
+    margin-left: 10px;
+}
+
+/*.tracking{*/
+/*    display: none;*/
+/*}*/

@@ -1,0 +1,107 @@
+.faq-page{
+    padding: 120px 0 120px;
+}
+/* accordion */
+.accordion-box .accordion {
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.acc-content .text {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+    padding: 0px 40px 20px 0px;
+    border-bottom: 1px solid #D6DFDF;
+    border-top: none;
+}
+.accordion-box .acc-btn {
+    position: relative;
+    padding: 10px 0 25px;
+    border-bottom: 1px solid #D6DFDF;
+}
+.accordion-box .acc-btn.active{
+    border-bottom: 1px solid transparent;
+}
+.accordion-box .block .acc-content.current {
+    display: block;
+}
+.accordion-box .block .acc-content {
+    display: none;
+}
+.accordion-box .acc-btn h4 {
+    color: var(--black-color);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    width: 100%;
+    cursor: pointer;
+}
+.accordion-box .acc-btn.active h4{
+    color: var(--secondary-color);
+}
+.accordion-box .acc-btn .icon-box {
+    position: absolute;
+    top: 15px;
+    right: 0px;
+}
+.accordion-box .block .icon_1 {
+    visibility: visible;
+    opacity: 1;
+    color: var(--black-color);
+    font-size: 20px;
+}
+.accordion-box .active-block .icon_1 {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.accordion-box .block .icon_2 {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+.accordion-box .active-block .icon_2 {
+    visibility: visible;
+    opacity: 1;
+    color: var(--secondary-color);
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/* accordion */
+
+/* ----------------------------------------
+Responsive
+------------------------------------------- */
+/* Large screen  */
+@media only screen and (min-width: 1200px) and (max-width: 1319px) {
+    
+}
+/* Medium screen  */
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    .faq-page {
+        padding: 80px 0 80px;
+    }
+
+}
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .faq-page {
+        padding: 80px 0 80px;
+    }
+}
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px){
+    .faq-page {
+        padding: 60px 0 60px;
+    }
+    .faq-page-container .accordion-box .acc-btn h4 {
+        font-size: 18px;
+        width: 92%;
+    }
+}
+/* ----------------------------------------
+Responsive
+------------------------------------------- */
