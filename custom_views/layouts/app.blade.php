@@ -45,14 +45,35 @@
                             <nav class="main-menu navbar-expand-md navbar-light">
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation">
+
+                                        @if(auth('admin')->check())
+                                            <li>
+                                                <a class="text-capitalize" href="{{ route('admin.logout') }}"
+                                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('Admin Logout')</a>
+                                                <form id="logout-form" action="{{ route('admin.logout') }}"
+                                                      method="POST"
+                                                      class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        @endif
+
                                         <li>
-                                            <a class="text-capitalize " href="http://127.0.0.1/courier">Add Products</a>
+                                            <a class="text-capitalize {{ activeMenu(['admin.dashboard']) }}"
+                                               href="{{ route('admin.dashboard') }}">@lang('Admin Dashboard')</a>
+                                        </li>
+
+                                        <li>
+                                            <a class="text-capitalize "
+                                               href="{{ route('admin.add.product.form') }}">@lang('Add Products')</a>
                                         </li>
                                         <li>
-                                            <a class="text-capitalize " href="http://127.0.0.1/courier/about">Product List</a>
+                                            <a class="text-capitalize "
+                                               href="http://127.0.0.1/courier/about">@lang('Product List')</a>
                                         </li>
                                         <li>
-                                            <a class="text-capitalize active" href="http://127.0.0.1/courier/products"> Buy Products</a>
+                                            <a class="text-capitalize"
+                                               href="http://127.0.0.1/courier/products"> @lang('Buy Products')</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -61,28 +82,43 @@
                     </div>
 
                     <div class="right-column d-flex align-items-center">
-                        <div class="header-right-inner me-3">
-                            <div class="sign-up">
-                                <a href="http://127.0.0.1/courier/login" class="header-right-icon"><i
-                                        class="fa-light fa-user"></i></a>
+                        @if(auth('web')->check())
+                            <div class="nav-outer">
+                                <div class="mobile-nav-toggler"><img
+                                        src="http://127.0.0.1/courier/assets/themes/light/img/icons/icon-bar.png"
+                                        alt="icon"></div>
+                                <nav class="main-menu navbar-expand-md navbar-light">
+                                    <div class="collapse navbar-collapse show " id="navbarSupportedContent">
+                                        <ul class="navigation">
+                                            <li>
+                                                <a class="text-capitalize"
+                                                   href="{{ route('user.dashboard') }}">
+                                                    @lang('User Dashboard')
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="text-capitalize" href="http://127.0.0.1/courier">@lang('Order list')</a>
+                                            </li>
+
+                                            <li>
+                                                <a class="text-capitalize" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('Log Out')</a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
                             </div>
-
-                        </div>
-
-                        <div class="nav-outer">
-                            <div class="mobile-nav-toggler"><img
-                                    src="http://127.0.0.1/courier/assets/themes/light/img/icons/icon-bar.png"
-                                    alt="icon"></div>
-                            <nav class="main-menu navbar-expand-md navbar-light">
-                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                    <ul class="navigation">
-                                        <li>
-                                            <a class="text-capitalize " href="http://127.0.0.1/courier">User Product List</a>
-                                        </li>
-                                    </ul>
+                        @else
+                            <div class="header-right-inner me-3">
+                                <div class="sign-up">
+                                    <a href="{{ route('login') }}" class="header-right-icon"
+                                       title="user login"><i
+                                            class="fa-light fa-user"></i></a>
                                 </div>
-                            </nav>
-                        </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
