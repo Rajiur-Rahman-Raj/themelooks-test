@@ -25,7 +25,7 @@ class StoreProductRequest extends FormRequest
             'name' => 'required|string|min:3|max:100|unique:products,name',
             'sku' => 'required|string|alpha_dash|min:3|max:100|unique:products,sku',
             'unit_quantity' => 'required|numeric|min:1',
-            'unit_value' => 'required|numeric|min:0.01',
+            'unit_value' => 'required|string|min:1|max:100',
             'discount' => 'nullable|numeric|min:0|max:100',
             'tax' => 'nullable|numeric|min:0|max:100',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
@@ -40,7 +40,6 @@ class StoreProductRequest extends FormRequest
             'name.min' => 'Product name must be at least 3 characters.',
             'name.max' => 'Product name cannot exceed 100 characters.',
             'name.unique' => 'This product name already exists. Please use a different name.',
-
             'sku.required' => 'SKU is required.',
             'sku.string' => 'SKU must be a string.',
             'sku.alpha_dash' => 'SKU can only contain letters, numbers, dashes, and underscores.',
@@ -53,8 +52,7 @@ class StoreProductRequest extends FormRequest
             'unit_quantity.min' => 'Unit quantity must be at least 1.',
 
             'unit_value.required' => 'Unit value is required.',
-            'unit_value.numeric' => 'Unit value must be a number.',
-            'unit_value.min' => 'Unit value must be greater than 0.',
+            'unit_value.min' => 'Unit value must be at least 1 characters.',
 
             'discount.numeric' => 'Discount must be a number.',
             'discount.min' => 'Discount cannot be less than 0.',

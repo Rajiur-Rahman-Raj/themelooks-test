@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +25,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::middleware(['auth:admin'])->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::get('add/product/form', [DashboardController::class, 'addProductForm'])->name('add.product.form');
-        Route::post('product/store', [DashboardController::class, 'productStore'])->name('product.store');
+        Route::get('add/product/form', [ProductController::class, 'addProductForm'])->name('add.product.form');
+        Route::post('product/store', [ProductController::class, 'productStore'])->name('product.store');
     });
 
 });

@@ -145,3 +145,10 @@ TABLE OF CONTENT
     font-size: 13px;
     border: none;
 }
+
+/*------------ for notiflix ------------*/
+#Notiflix-Icon-Success,
+#Notiflix-Icon-Failure,
+#Notiflix-Icon-Warning {
+    fill: #fff !important;
+}

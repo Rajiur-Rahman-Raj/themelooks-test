@@ -13,7 +13,7 @@ class ProductVariant extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'variants' => 'json'
+        'variants' => 'array'
     ];
 
     public function product()

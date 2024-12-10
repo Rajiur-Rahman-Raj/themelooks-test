@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100)->unique();
             $table->string('sku', 100)->unique();
-            $table->unsignedDecimal('unit_quantity', 8, 2)->default(0);
+            $table->decimal('unit_quantity', 8, 2)->default(0);
             $table->string('unit_value')->nullable();
-            $table->unsignedDecimal('discount', 8, 2)->default(0);
-            $table->unsignedDecimal('tax', 8, 2)->default(0);
+            $table->decimal('discount', 8, 2)->default(0);
+            $table->decimal('tax', 8, 2)->default(0);
             $table->string('image')->nullable();
             $table->timestamps();
         });
