@@ -19,6 +19,13 @@ if (!function_exists('activeMenu')) {
 
         return '';
     }
+
+    if (!function_exists('customDate')) {
+        function customDate($date, $format = 'd M, Y')
+        {
+            return date($format, strtotime($date));
+        }
+    }
 }
 
 

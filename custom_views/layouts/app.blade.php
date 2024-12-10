@@ -52,7 +52,7 @@
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                 <li>
-                                                    <a class="text-capitalize {{ activeMenu(['admin.dashboard']) }}"
+                                                    <a class="text-capitalize"
                                                        href="{{ route('admin.dashboard') }}">@lang('Admin Dashboard')</a>
                                                 </li>
 
@@ -63,7 +63,7 @@
 
                                                 <li>
                                                     <a class="text-capitalize "
-                                                       href="http://127.0.0.1/courier/about">@lang('Product List')</a>
+                                                       href="{{ route('admin.product.list') }}">@lang('Product List')</a>
                                                 </li>
 
                                                 @if(auth('admin')->check())
@@ -81,8 +81,8 @@
                                         </li>
 
                                         <li>
-                                            <a class="text-capitalize"
-                                               href="http://127.0.0.1/courier/products"> @lang('Products')</a>
+                                            <a class="text-capitalize {{ activeMenu(['products']) }}"
+                                               href="{{ route('products') }}" > @lang('Products')</a>
                                         </li>
                                     </ul>
                                 </div>

@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::get('add/product/form', [ProductController::class, 'addProductForm'])->name('add.product.form');
         Route::post('product/store', [ProductController::class, 'productStore'])->name('product.store');
+        Route::get('product/list', [ProductController::class, 'productList'])->name('product.list');
     });
 
 });

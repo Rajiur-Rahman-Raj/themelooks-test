@@ -146,6 +146,25 @@ TABLE OF CONTENT
     border: none;
 }
 
+.pagination_area ul li .page-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 51% !important;
+    color: #61ce70;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    border: 1px solid #61ce70;
+}
+
+.pagination_area ul .active .page-link {
+    background-color: #61ce70;
+    color: var(--white);
+    border-color: #61ce70;
+}
+
 /*------------ for notiflix ------------*/
 #Notiflix-Icon-Success,
 #Notiflix-Icon-Failure,
