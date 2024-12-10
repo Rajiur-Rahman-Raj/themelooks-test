@@ -197,7 +197,7 @@
                 var newVariant = `<div class="variant-input">
                                     <div class="card-body variant-option" style="border-bottom:1px solid #d1cccc">
                                         <div class="mb-2">
-                                            <label for="">Option name</label>
+                                            <label for="">Variant name</label>
                                             <div class="mb-2 d-flex">
                                                 <select class="form-select" name="option_name[]">
                                                     <option value="Color"> Color </option>
@@ -208,7 +208,7 @@
                                             </div>
                                         </div>
                                         <div class="mb-2" id="newField">
-                                            <label for="">Option values</label>
+                                            <label for="">Variant values</label>
                                             <div class="mb-2 d-flex">
                                                 <input type="text" class="form-control add_field" name="option_values[]" placeholder="">
                                                 <a href="javascript:void(0)" class="text-danger removeNewInputOption"> <i class="fa-regular fa-trash-can mx-2 mt-2 deleteIcon" aria-hidden="true"></i></a>
@@ -428,7 +428,7 @@
                 $html += `<div class="variant-input">
                                 <div class="card-body variant-option" style="border-bottom:1px solid #d1cccc">
                                     <div class="mb-2">
-                                        <label for="">Option name</label>
+                                        <label for="">Variant Name</label>
                                         <div class="mb-2 d-flex">
                                             <select class="form-select" name="option_name[]">
                                                 <option value="${variantType}">${variantType}</option>
@@ -437,7 +437,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-2" id="newField">
-                                         <label for="">Option values</label>`
+                                         <label for="">Variant Values</label>`
 
                 selectedVariants[variantType].forEach(variant => {
                     $html += `<div class="mb-2 d-flex">

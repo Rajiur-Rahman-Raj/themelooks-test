@@ -19,9 +19,7 @@ class DashboardController extends Controller
     }
 
     public function productStore(StoreProductRequest $request){
-
         dd($request->all());
-
     }
 
 }
