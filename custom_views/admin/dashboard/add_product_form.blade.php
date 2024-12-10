@@ -12,7 +12,8 @@
                     <div class="card-body">
 
                         <div class="hrader-search-input select-option w-100 mb-4">
-                            <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.product.store') }}" method="post"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="variantsComObj" id="getVariantsComObjInput" value="">
                                 <div class="mb-3">
@@ -51,6 +52,32 @@
                                         </select>
                                     </div>
                                     @error('unit_quantity')
+                                    <div class="form-text text-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="productPurchasePrice" class="form-label">@lang('Purchase Price')</label>
+                                    <input type="text" name="purchase_price"
+                                           class="@error('purchase_price') is-invalid @enderror"
+                                           placeholder="0.00"
+                                           id="productPurchasePrice">
+                                    @error('purchase_price')
+                                    <div class="form-text text-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="productSellingPrice" class="form-label">@lang('Selling Price')</label>
+                                    <input type="text" name="selling_price"
+                                           class="@error('selling_price') is-invalid @enderror"
+                                           placeholder="0.00"
+                                           id="productSellingPrice">
+                                    @error('selling_price')
                                     <div class="form-text text-danger">
                                         {{ $message }}
                                     </div>

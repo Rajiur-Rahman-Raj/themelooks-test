@@ -23,6 +23,8 @@ trait ProductStoreTrait
         $product->sku = $request->sku;
         $product->unit_quantity = $request->unit_quantity ?? 0;
         $product->unit_value = $request->unit_value;
+        $product->purchase_price = $request->purchase_price;
+        $product->selling_price = $request->selling_price;
         $product->discount = $request->discount ?? 0;
         $product->tax = $request->tax ?? 0;
 

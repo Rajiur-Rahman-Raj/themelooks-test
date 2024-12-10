@@ -20,4 +20,11 @@ class ProductVariant extends Model
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
+
+    public function getShowProductVariantDiscountPriceAttribute()
+    {
+        $sellingPrice = $this->selling_price;
+        $discount = $this->product->discount;
+        return number_format($sellingPrice - ($sellingPrice * ($discount / 100)));
+    }
 }
