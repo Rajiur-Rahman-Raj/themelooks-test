@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('add/product/form', [DashboardController::class, 'addProductForm'])->name('add.product.form');
+        Route::post('product/store', [DashboardController::class, 'productStore'])->name('product.store');
     });
 
 });

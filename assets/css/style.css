@@ -89,3 +89,59 @@ TABLE OF CONTENT
 .btn-1:hover{
     background: #333333 !important;
 }
+.done-button{
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.variants-option .variants-option-box .variants-color span {
+    padding: 0 10px;
+    margin-top: 5px !important;
+    margin-right: 5px;
+    border-radius: 20px;
+    background-color: #ddd;
+    text-transform: capitalize !important;
+}
+.variants {
+    margin-top: 8px;
+    border: 1px solid #e0e0e0;
+    padding: 2px 15px;
+}
+
+.variants-option .variants-option-box .variants-edit-btn button {
+    padding: 2px 10px;
+    border: 1px solid #ddd;
+    text-transform: capitalize;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.combination-modal {
+    padding: 2px 10px;
+    border: 1px solid #ddd;
+    text-transform: capitalize;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.modal-backdrop.show {
+    z-index: 0;
+}
+
+.edit-variants .modal .modal-dialog .modal-content .modal-footer .cencle {
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    border: none;
+}
+.edit-variants .modal .modal-dialog .modal-content .modal-footer .done:hover {
+    background-color: #777575;
+}
+.edit-variants .modal .modal-dialog .modal-content .modal-footer .done {
+    padding: 3px 10px;
+    border-radius: 10px;
+    background-color: #a7a7a7;
+    color: #fff;
+    font-size: 13px;
+    border: none;
+}

@@ -45,35 +45,44 @@
                             <nav class="main-menu navbar-expand-md navbar-light">
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                @lang('Admin Action')
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li>
+                                                    <a class="text-capitalize {{ activeMenu(['admin.dashboard']) }}"
+                                                       href="{{ route('admin.dashboard') }}">@lang('Admin Dashboard')</a>
+                                                </li>
 
-                                        @if(auth('admin')->check())
-                                            <li>
-                                                <a class="text-capitalize" href="{{ route('admin.logout') }}"
-                                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('Admin Logout')</a>
-                                                <form id="logout-form" action="{{ route('admin.logout') }}"
-                                                      method="POST"
-                                                      class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </li>
-                                        @endif
+                                                <li>
+                                                    <a class="text-capitalize "
+                                                       href="{{ route('admin.add.product.form') }}">@lang('Add Products')</a>
+                                                </li>
 
-                                        <li>
-                                            <a class="text-capitalize {{ activeMenu(['admin.dashboard']) }}"
-                                               href="{{ route('admin.dashboard') }}">@lang('Admin Dashboard')</a>
+                                                <li>
+                                                    <a class="text-capitalize "
+                                                       href="http://127.0.0.1/courier/about">@lang('Product List')</a>
+                                                </li>
+
+                                                @if(auth('admin')->check())
+                                                    <li>
+                                                        <a class="text-capitalize" href="{{ route('admin.logout') }}"
+                                                           onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('Logout')</a>
+                                                        <form id="logout-form" action="{{ route('admin.logout') }}"
+                                                              method="POST"
+                                                              class="d-none">
+                                                            @csrf
+                                                        </form>
+                                                    </li>
+                                                @endif
+                                            </ul>
                                         </li>
 
-                                        <li>
-                                            <a class="text-capitalize "
-                                               href="{{ route('admin.add.product.form') }}">@lang('Add Products')</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-capitalize "
-                                               href="http://127.0.0.1/courier/about">@lang('Product List')</a>
-                                        </li>
                                         <li>
                                             <a class="text-capitalize"
-                                               href="http://127.0.0.1/courier/products"> @lang('Buy Products')</a>
+                                               href="http://127.0.0.1/courier/products"> @lang('Products')</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -90,21 +99,33 @@
                                 <nav class="main-menu navbar-expand-md navbar-light">
                                     <div class="collapse navbar-collapse show " id="navbarSupportedContent">
                                         <ul class="navigation">
-                                            <li>
-                                                <a class="text-capitalize"
-                                                   href="{{ route('user.dashboard') }}">
-                                                    @lang('User Dashboard')
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="text-capitalize" href="http://127.0.0.1/courier">@lang('Order list')</a>
-                                            </li>
 
-                                            <li>
-                                                <a class="text-capitalize" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('Log Out')</a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                    @csrf
-                                                </form>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    @lang('User Action')
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li>
+                                                        <a class="text-capitalize"
+                                                           href="{{ route('user.dashboard') }}">
+                                                            @lang('User Dashboard')
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="text-capitalize"
+                                                           href="http://127.0.0.1/courier">@lang('Order list')</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="text-capitalize" href="{{ route('logout') }}"
+                                                           onclick="event.preventDefault();document.getElementById('logout-form').submit();">@lang('Log Out')</a>
+                                                        <form id="logout-form" action="{{ route('logout') }}"
+                                                              method="POST" class="d-none">
+                                                            @csrf
+                                                        </form>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </div>
@@ -122,6 +143,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+
+        <!-- mobile menu -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="fal fa-times"></span></div>
+
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="{{ url('/') }}"><img
+                            src="https://themelooks.com/wp-content/uploads/2019/06/logo.png" alt="logo"></a></div>
+                <div class="menu-outer">
+
+                </div>
+            </nav>
         </div>
 
 
@@ -157,6 +193,8 @@
 <script src="{{ asset('assets/js/jarallax.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.paroller.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/socialSharing.js') }}"></script>
+<script src="{{ asset('assets/js/flatpickr-min.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
 
 @stack('js-lib')
