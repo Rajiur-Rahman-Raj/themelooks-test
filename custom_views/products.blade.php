@@ -103,8 +103,8 @@
                             <div class="shop-left-aside">
                                 <!--Accordian Box-->
                                 <div class="accordion" id="accordionPanelsStayOpenExample">
-                                    <form action="http://127.0.0.1/courier/products" method="get"
-                                          id="filterByRangeAndCategory">
+                                    <form action="{{ route('user.product.purchase') }}" method="post" enctype="multipart/form-data">
+                                        @csrf
 
                                         <table class="table table-bordered cart-table">
                                             <thead class="table-head">
@@ -156,7 +156,7 @@
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <button type="button"
+                                                <button type="submit"
                                                         class="btn w-100 btn-1 place-order"> @lang('Place Order')
                                                 </button>
                                             </div>
@@ -193,7 +193,16 @@
     </div>
 @endsection
 
+@if(session('success'))
+    <script type="text/javascript">
+        localStorage.removeItem('cart');
+    </script>
+@endif
+
+
 @push('script')
+
+
     <script>
         $(document).ready(function () {
 
@@ -233,15 +242,21 @@
                     <td scope="row">
                         <div class="product_quantity d-flex align-items-center justify-content-left">
                             <img src="${item.product_image}" alt="product_img" width="20%" class="img-fluid">
-                            <p class="text-center">${item.product_name}</p>
+                            <p class="text-center me-2">${item.product_name}</p>
+                            <span>(${item.variant_name})</span>
+                            <input type="hidden" name="product_id[]" value="${item.product_id}">
+                            <input type="hidden" name="product_variant[]" value="${item.variant_name}">
+                            <input type="hidden" name="product_quantity[]" value="${item.product_qty}">
+                            <input type="hidden" name="product_price[]" value="${(item.selling_price * item.product_qty).toFixed(2)}">
                         </div>
                     </td>
+
                     <td class="text-center">
                         <div class="product_quantity d-flex justify-content-center">
                             <button type="button" class="minus btn btn-sm border decrement" data-index="${index}">
                                 <i aria-hidden="true" class="fal fa-minus"></i>
                             </button>
-                            <input class="border text-center countInput" name="quantity" type="number" value="${item.product_qty}" data-index="${index}">
+                            <input class="border text-center countInput" type="number" value="${item.product_qty}" data-index="${index}">
                             <button type="button" class="plus btn btn-sm border increment" data-index="${index}">
                                 <i aria-hidden="true" class="fal fa-plus"></i>
                             </button>

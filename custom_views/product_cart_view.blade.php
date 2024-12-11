@@ -169,7 +169,8 @@
                 <td scope="row">
                     <div class="product_quantity d-flex align-items-center justify-content-left">
                         <img src="${item.product_image}" alt="product_img" width="20%" class="img-fluid">
-                        <p class="text-center">${item.product_name}</p>
+                        <p class="text-center me-2">${item.product_name}</p>
+                        <span>(${item.variant_name})</span>
                     </div>
                 </td>
                 <td class="text-center">

@@ -74,6 +74,7 @@ class FrontendController extends Controller
 
         $data = [
             'variant_id' => $productVariant->id,
+            'variant_name' => $productVariant->variant_name,
             'product_id' => $productVariant->product_id,
             'product_name' => optional($productVariant->product)->name,
             'product_image' => asset('assets/uploads/product/'.optional($productVariant->product)->image),

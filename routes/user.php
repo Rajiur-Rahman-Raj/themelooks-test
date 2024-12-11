@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,6 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/product/purchase', [ProductController::class, 'productPurchase'])->name('product.purchase');
+
 });
