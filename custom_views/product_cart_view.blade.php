@@ -17,8 +17,6 @@
                 </div>
             @endif
 
-            {{--            <form action="#" method="POST" enctype="multipart/form-data" class="addToCart">--}}
-            {{--                @csrf--}}
             @foreach ($variants as $variantType => $variantValues)
                 <div class="{{ strtolower($variantType) }}-box mb-0">
                     <h4 class="pt-2">{{ ucfirst($variantType) }}</h4>
@@ -152,7 +150,6 @@
                 $('.table-head').removeClass('d-none');
                 $('.place-order').removeClass('d-none');
                 cartContainer.innerHTML = '';
-
 
 
                 cart.forEach(item => {

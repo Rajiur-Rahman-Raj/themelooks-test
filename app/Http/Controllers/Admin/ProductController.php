@@ -43,7 +43,7 @@ class ProductController extends Controller
         $data['products'] = Product::with('variants')
             ->selectRaw('id, name, sku, image, created_at, (SELECT COUNT(*) FROM product_variants WHERE product_variants.product_id = products.id) as total_variants')
             ->orderBy('id', 'ASC')
-            ->paginate(2);
+            ->paginate(3);
 
         return view('admin.dashboard.product_list', $data);
     }
@@ -64,7 +64,7 @@ class ProductController extends Controller
             ->when(isset($search['to_date']), function ($q2) use ($fromDate, $toDate) {
                 return $q2->whereBetween('created_at', [$fromDate, $toDate]);
             })
-            ->paginate(2);
+            ->paginate(3);
         return view('admin.order.list', $data);
     }
 

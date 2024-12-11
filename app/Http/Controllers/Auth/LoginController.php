@@ -48,7 +48,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken(); // Regenerates the CSRF token
 
-        // Redirect to login page after logout
         return redirect()->route('login');
     }
 }

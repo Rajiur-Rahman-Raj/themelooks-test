@@ -71,7 +71,7 @@ class ProductController extends Controller
             ->when(isset($search['to_date']), function ($q2) use ($fromDate, $toDate) {
                 return $q2->whereBetween('created_at', [$fromDate, $toDate]);
             })
-            ->paginate(10);
+            ->paginate(3);
         return view('user.order.list', $data);
     }
 
