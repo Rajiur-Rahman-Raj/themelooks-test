@@ -20,9 +20,7 @@
                                 <div class="row" id="product-list">
                                     @forelse($products as $key => $product)
                                         <div class="col-lg-4 col-md-6">
-                                            <div class="new-arrival-single wow fadeInUp animated" data-wow-delay="200ms"
-                                                 data-wow-duration="1000ms"
-                                                 style="visibility: visible; animation-duration: 1000ms; animation-delay: 200ms; animation-name: fadeInUp;">
+                                            <div class="new-arrival-single">
                                                 <div class="new-arrival-image-container">
                                                     <div class="new-arrival-image">
                                                         <a href="#"
@@ -100,16 +98,16 @@
                             <h5>Billing Details</h5>
                         </div>
 
-                        <div class="card-body pt-0">
-                            <div class="shop-left-aside">
 
+                        <div class="card-body pt-0" id="card-body-message">
+                            <div class="shop-left-aside">
                                 <!--Accordian Box-->
                                 <div class="accordion" id="accordionPanelsStayOpenExample">
                                     <form action="http://127.0.0.1/courier/products" method="get"
                                           id="filterByRangeAndCategory">
 
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <table class="table table-bordered cart-table">
+                                            <thead class="table-head">
                                             <tr>
                                                 <th scope="col">@lang('Item')</th>
                                                 <th scope="col" class="text-center">@lang('Qty')</th>
@@ -117,124 +115,39 @@
                                                 <th scope="col" class="text-center">@lang('Action')</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div
-                                                        class="product_quantity d-flex align-items-center justify-content-left">
-                                                        <img
-                                                            src="http://127.0.0.1/courier/assets/upload/product/aNBAJPrLZER8oMr2neEKindcLyxwNy.webp"
-                                                            alt="product_img" width="20%" me-3 class="img-fluid">
-                                                        <p class="text-center">Cotton T Shirt..</p>
-                                                    </div>
-
-                                                </th>
-                                                <td class="text-center">
-                                                    <div class="product_quantity d-flex justify-content-center">
-                                                        <button type="button" class="minus btn btn-sm border decrement">
-                                                            <i aria-hidden="true" class="fal fa-minus"></i></button>
-                                                        <input class="border text-center countInput" name="quantity"
-                                                               type="number" value="1">
-                                                        <button type="button" class="plus btn btn-sm border increment">
-                                                            <i aria-hidden="true" class="fal fa-plus"></i></button>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    ৳ 35
-                                                </td>
-
-                                                <td class="text-center">
-                                                    <a href="javascript:void(0)" class="remove-item" data-item-id="665"><i
-                                                            class="fa-light fa-trash"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">
-                                                    <div
-                                                        class="product_quantity d-flex align-items-center justify-content-left">
-                                                        <img
-                                                            src="http://127.0.0.1/courier/assets/upload/product/aNBAJPrLZER8oMr2neEKindcLyxwNy.webp"
-                                                            alt="product_img" width="20%" me-3 class="img-fluid">
-                                                        <p class="text-center">Cotton T Shirt..</p>
-                                                    </div>
-
-                                                </th>
-                                                <td class="text-center">
-                                                    <div class="product_quantity d-flex justify-content-center">
-                                                        <button type="button" class="minus btn btn-sm border decrement">
-                                                            <i aria-hidden="true" class="fal fa-minus"></i></button>
-                                                        <input class="border text-center countInput" name="quantity"
-                                                               type="number" value="1">
-                                                        <button type="button" class="plus btn btn-sm border increment">
-                                                            <i aria-hidden="true" class="fal fa-plus"></i></button>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    ৳ 3500000
-                                                </td>
-
-                                                <td class="text-center">
-                                                    <a href="javascript:void(0)" class="remove-item" data-item-id="665"><i
-                                                            class="fa-light fa-trash"></i></a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th scope="row">
-                                                    <div
-                                                        class="product_quantity d-flex align-items-center justify-content-left">
-                                                        <img
-                                                            src="http://127.0.0.1/courier/assets/upload/product/aNBAJPrLZER8oMr2neEKindcLyxwNy.webp"
-                                                            alt="product_img" width="20%" me-3 class="img-fluid">
-                                                        <p class="text-center">Cotton T Shirt..</p>
-                                                    </div>
-
-                                                </th>
-                                                <td class="text-center">
-                                                    <div class="product_quantity d-flex justify-content-center">
-                                                        <button type="button" class="minus btn btn-sm border decrement">
-                                                            <i aria-hidden="true" class="fal fa-minus"></i></button>
-                                                        <input class="border text-center countInput" name="quantity"
-                                                               type="number" value="1">
-                                                        <button type="button" class="plus btn btn-sm border increment">
-                                                            <i aria-hidden="true" class="fal fa-plus"></i></button>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    350 Tk
-                                                </td>
-
-                                                <td class="text-center">
-                                                    <a href="javascript:void(0)" class="remove-item" data-item-id="665"><i
-                                                            class="fa-light fa-trash"></i></a>
-                                                </td>
-                                            </tr>
+                                            <tbody id="cart-items">
 
                                             </tbody>
                                         </table>
 
-                                        <div class="row mt-5">
+                                        <div class="row mt-5 cart-calculation">
                                             <div class="col-md-12">
                                                 <div class="calculation">
                                                     <ul class="">
                                                         <li class="d-flex justify-content-between mb-3">
-                                                            <span class="fw-bold">Sub Total: </span>
-                                                            <span> 100 Tk</span>
+                                                            <span class="fw-bold">@lang('Sub Total'): </span>
+                                                            <input type="hidden" name="cart_sub_total"
+                                                                   class="subTotalInput">
+                                                            <span class="subTotalAmount"></span>
                                                         </li>
                                                         <li class="d-flex justify-content-between mb-3">
-                                                            <span class="fw-bold">Discount: </span>
-                                                            <span> 20 Tk</span>
+                                                            <span class="fw-bold">@lang('Discount'): </span>
+                                                            <input type="hidden" name="cart_discount"
+                                                                   class="discountInput">
+                                                            <span class="discountAmount"></span>
                                                         </li>
 
                                                         <li class="d-flex justify-content-between mb-3">
-                                                            <span class="fw-bold">Tax: </span>
-                                                            <span> 10 Tk</span>
+                                                            <span class="fw-bold">@lang('Tax'): </span>
+                                                            <input type="hidden" name="cart_tax" class="taxInput">
+                                                            <span class="taxAmount"></span>
                                                         </li>
 
                                                         <li class="d-flex justify-content-between mb-3">
-                                                            <span class="fw-bold">Total: </span>
-                                                            <span> 4500 Tk</span>
+                                                            <span class="fw-bold">@lang('Total'): </span>
+                                                            <input type="hidden" name="cart_grand_total"
+                                                                   class="grandTotalInput">
+                                                            <span class="grandTotalAmount"> </span>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -243,7 +156,9 @@
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <button type="button" class="btn w-100 btn-1"> Place Order</button>
+                                                <button type="button"
+                                                        class="btn w-100 btn-1 place-order"> @lang('Place Order')
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
@@ -251,6 +166,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -260,13 +176,13 @@
         </div>
     </section>
 
-    <!-- product quick view Modal -->
     <div id="search-popup-two" class="search-popup-two">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="login-container">
-                        <div class="close-search theme-btn"><span class="fal fa-times"></span></div>
+                        <div class="close-search theme-btn cart-modal-close"><span
+                                class="fal fa-times cart-modal-close"></span></div>
                         <div class="cart-single cart-single-1" id="quick_product_cart_view">
                             <!--product details show here -->
                         </div>
@@ -279,6 +195,140 @@
 
 @push('script')
     <script>
+        $(document).ready(function () {
+
+            displayCart();
+
+            function displayCart() {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                let cartContainer = document.getElementById("cart-items");
+
+                let subTotal = 0;
+                let totalDiscount = 0;
+                let totalTax = 0;
+
+                if (cart.length === 0) {
+                    $(".cart-calculation").addClass("d-none");
+                    $(".table-head").addClass("d-none");
+                    $(".place-order").addClass("d-none");
+                    cartContainer.innerHTML = '<h5 class="text-danger text-center">Your cart is empty.</h5>';
+                } else {
+                    $(".cart-calculation").removeClass("d-none");
+                    $(".table-head").removeClass("d-none");
+                    $(".place-order").removeClass("d-none");
+
+                    cartContainer.innerHTML = "";
+
+                    cart.forEach((item, index) => {
+                        let itemTotal = item.selling_price * item.product_qty;
+                        let itemDiscount = itemTotal * (item.discount || 0) / 100;
+                        let itemTax = itemTotal * (item.tax || 0) / 100;
+
+                        subTotal += itemTotal;
+                        totalDiscount += itemDiscount;
+                        totalTax += itemTax;
+
+                        let itemHTML = `
+                <tr>
+                    <td scope="row">
+                        <div class="product_quantity d-flex align-items-center justify-content-left">
+                            <img src="${item.product_image}" alt="product_img" width="20%" class="img-fluid">
+                            <p class="text-center">${item.product_name}</p>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="product_quantity d-flex justify-content-center">
+                            <button type="button" class="minus btn btn-sm border decrement" data-index="${index}">
+                                <i aria-hidden="true" class="fal fa-minus"></i>
+                            </button>
+                            <input class="border text-center countInput" name="quantity" type="number" value="${item.product_qty}" data-index="${index}">
+                            <button type="button" class="plus btn btn-sm border increment" data-index="${index}">
+                                <i aria-hidden="true" class="fal fa-plus"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        ৳ ${(item.selling_price * item.product_qty).toFixed(2)}
+                    </td>
+                    <td class="text-center">
+                        <a href="javascript:void(0)" class="remove-item" data-variantid="${item.variant_id}">
+                            <i class="fa-light fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>`;
+                        cartContainer.innerHTML += itemHTML;
+                    });
+
+                    let grandTotal = (subTotal - totalDiscount) + totalTax;
+
+                    $(".subTotalAmount").text(`${subTotal.toFixed(2)} TK`);
+                    $(".discountAmount").text(`${totalDiscount.toFixed(2)} TK`);
+                    $(".taxAmount").text(`${totalTax.toFixed(2)} TK`);
+                    $(".grandTotalAmount").text(`${grandTotal.toFixed(2)} TK`);
+
+                    $(".subTotalInput").val(subTotal.toFixed(2));
+                    $(".discountInput").val(totalDiscount.toFixed(2));
+                    $(".taxInput").val(totalTax.toFixed(2));
+                    $(".grandTotalInput").val(grandTotal.toFixed(2));
+                }
+            }
+
+            $(document).on("click", ".remove-item", function () {
+                let variantId = $(this).data("variantid");
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart = cart.filter(item => item.variant_id !== variantId);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                Notiflix.Notify.success("Item removed successfully!");
+                displayCart();
+            });
+
+            $(document).on('click', '.increment', function () {
+                let index = $(this).data('index');
+                updateQuantity(index, 1);
+            });
+
+            $(document).on('click', '.decrement', function () {
+                let index = $(this).data('index');
+                updateQuantity(index, -1);
+            });
+
+            $(document).on('change', '.countInput', function () {
+                let index = $(this).data('index');
+                let newQty = parseInt($(this).val());
+                if (newQty > 0) {
+                    updateQuantity(index, 0, newQty);
+                } else {
+                    Notiflix.Notify.failure('Quantity must be at least 1');
+                    displayCart();
+                }
+            });
+
+            function updateQuantity(index, change, newQty = null) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                console.log(cart);
+                if (cart[index]) {
+                    if (newQty !== null) {
+                        cart[index].product_qty = newQty;
+                    } else {
+                        cart[index].product_qty += change;
+                    }
+
+                    if (cart[index].product_qty <= 0) {
+                        cart[index].product_qty = 1;
+                        Notiflix.Notify.failure('Quantity must be at least 1');
+                    }
+
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    displayCart();
+                }
+            }
+        });
+
+        $(document).on('click', '.cart-modal-close', function () {
+            window.location.reload();
+        });
+
+
         $(document).on('click', '.search-btn', function () {
             $('#search-popup-two').addClass('popup-visible');
         });
@@ -306,5 +356,6 @@
                 },
             });
         });
+
     </script>
 @endpush

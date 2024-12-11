@@ -58,4 +58,32 @@ class FrontendController extends Controller
         }
 
     }
+
+    public function productCartStore(Request $request)
+    {
+        $productVariant = ProductVariant::with('product')->where('product_id', $request->id)
+            ->whereJsonContains('variants', $request->variants)
+            ->first();
+
+        if ($request->qty <= 0) {
+            return response()->json(['message' => 'Product quantity must be greater than 0']);
+
+        }if (!$productVariant) {
+            return response()->json(['message' => 'Product variant not found']);
+        }
+
+        $data = [
+            'variant_id' => $productVariant->id,
+            'product_id' => $productVariant->product_id,
+            'product_name' => optional($productVariant->product)->name,
+            'product_image' => asset('assets/uploads/product/'.optional($productVariant->product)->image),
+            'product_qty' => (int) $request->qty,
+            'selling_price' => $productVariant->selling_price,
+            'discount' => optional($productVariant->product)->discount,
+            'tax' => optional($productVariant->product)->tax,
+        ];
+
+        return response()->json($data);
+
+    }
 }

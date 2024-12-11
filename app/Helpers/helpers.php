@@ -26,6 +26,19 @@ if (!function_exists('activeMenu')) {
             return date($format, strtotime($date));
         }
     }
+
+    function getAmount($amount, $length = 0)
+    {
+        if ($amount == 0) {
+            return 0;
+        }
+        if ($length == 0) {
+            preg_match("#^([\+\-]|)([0-9]*)(\.([0-9]*?)|)(0*)$#", trim($amount), $o);
+            return $o[1] . sprintf('%d', $o[2]) . ($o[3] != '.' ? $o[3] : '');
+        }
+
+        return round($amount, $length);
+    }
 }
 
 

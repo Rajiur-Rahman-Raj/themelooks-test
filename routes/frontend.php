@@ -23,3 +23,4 @@ Route::redirect('/', 'products');
 Route::get('/products', [FrontendController::class, 'products'])->name('products');
 Route::get('product/cart/view', [FrontendController::class, 'productCartView'])->name('product.cart.view');
 Route::post('find-product-with-variants', [FrontendController::class, 'findProductWithVariants'])->name('product.find');
+Route::post('product-cart-store', [FrontendController::class, 'productCartStore'])->name('product.cart.store');
