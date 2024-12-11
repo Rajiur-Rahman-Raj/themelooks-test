@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Models\Product;
+use App\Models\ProductPurchase;
 use App\Traits\ProductStoreTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -44,5 +46,31 @@ class ProductController extends Controller
             ->paginate(2);
 
         return view('admin.dashboard.product_list', $data);
+    }
+
+    public function orderList(Request $request)
+    {
+        $search = $request->all();
+        $fromDate = Carbon::parse($request->from_date);
+        $toDate = Carbon::parse($request->to_date)->addDay();
+
+        $data['orders'] = ProductPurchase::
+            when(isset($search['purchase_code']), function ($query) use ($search) {
+                return $query->where('purchase_code', 'LIKE', "%{$search['purchase_code']}%");
+            })
+            ->when(isset($search['from_date']), function ($q2) use ($fromDate) {
+                return $q2->whereDate('created_at', '>=', $fromDate);
+            })
+            ->when(isset($search['to_date']), function ($q2) use ($fromDate, $toDate) {
+                return $q2->whereBetween('created_at', [$fromDate, $toDate]);
+            })
+            ->paginate(2);
+        return view('admin.order.list', $data);
+    }
+
+    public function orderDetails($orderId)
+    {
+        $data['orderDetails'] = ProductPurchase::select('id', 'purchase_details')->findOrFail($orderId);
+        return view('admin.order.details', $data);
     }
 }

@@ -28,6 +28,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('add/product/form', [ProductController::class, 'addProductForm'])->name('add.product.form');
         Route::post('product/store', [ProductController::class, 'productStore'])->name('product.store');
         Route::get('product/list', [ProductController::class, 'productList'])->name('product.list');
+        Route::get('order/list', [ProductController::class, 'orderList'])->name('order.list');
+        Route::get('order/details/{id}', [ProductController::class, 'orderDetails'])->name('order.details');
     });
 
 });

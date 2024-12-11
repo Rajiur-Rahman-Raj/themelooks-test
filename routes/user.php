@@ -22,5 +22,6 @@ Auth::routes();
 Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/product/purchase', [ProductController::class, 'productPurchase'])->name('product.purchase');
-
+    Route::get('/order/list', [ProductController::class, 'orderList'])->name('order.list');
+    Route::get('/order/details/{id}', [ProductController::class, 'orderDetails'])->name('order.details');
 });

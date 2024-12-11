@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}"/>
+
+    @stack('extra_styles')
 </head>
 <body>
 
@@ -66,6 +68,12 @@
                                                        href="{{ route('admin.product.list') }}">@lang('Product List')</a>
                                                 </li>
 
+                                                <li>
+                                                    <a class="text-capitalize "
+                                                       href="{{ route('admin.order.list') }}">@lang('Order List')</a>
+                                                </li>
+
+
                                                 @if(auth('admin')->check())
                                                     <li>
                                                         <a class="text-capitalize" href="{{ route('admin.logout') }}"
@@ -82,7 +90,7 @@
 
                                         <li>
                                             <a class="text-capitalize {{ activeMenu(['products']) }}"
-                                               href="{{ route('products') }}" > @lang('Products')</a>
+                                               href="{{ route('products') }}"> @lang('Products')</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -114,7 +122,7 @@
                                                     </li>
                                                     <li>
                                                         <a class="text-capitalize"
-                                                           href="http://127.0.0.1/courier">@lang('Order list')</a>
+                                                           href="{{ route('user.order.list') }}">@lang('Order list')</a>
                                                     </li>
 
                                                     <li>
@@ -159,20 +167,10 @@
                 </div>
             </nav>
         </div>
-
-
-        @push('js-lib')
-
-        @endpush
-
-        @push('script')
-            <script>
-            </script>
-        @endpush
-
     </header>
 
     @yield('content')
+
 </div>
 
 
@@ -199,7 +197,6 @@
 
 @stack('js-lib')
 @stack('script')
-
 
 <script>
 

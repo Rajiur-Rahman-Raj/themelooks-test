@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductPurchase;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +37,7 @@ class ProductController extends Controller
 
           ProductPurchase::create([
                 'user_id' => Auth::id(),
-                'purchase_code' => Str::random(10),
+              'purchase_code' => strtoupper(Str::random(10)),
                 'sub_total' => $request->input('cart_sub_total', 0),
                 'discount' => $request->input('cart_discount', 0),
                 'tax' => $request->input('cart_tax', 0),
@@ -52,6 +53,32 @@ class ProductController extends Controller
             DB::rollBack();
             return back()->withErrors([$e->getMessage()]);
         }
+    }
+
+    public function orderList(Request $request)
+    {
+        $search = $request->all();
+        $fromDate = Carbon::parse($request->from_date);
+        $toDate = Carbon::parse($request->to_date)->addDay();
+
+        $data['orders'] = ProductPurchase::where('user_id', Auth::id())
+            ->when(isset($search['purchase_code']), function ($query) use ($search) {
+                return $query->where('purchase_code', 'LIKE', "%{$search['purchase_code']}%");
+            })
+            ->when(isset($search['from_date']), function ($q2) use ($fromDate) {
+                return $q2->whereDate('created_at', '>=', $fromDate);
+            })
+            ->when(isset($search['to_date']), function ($q2) use ($fromDate, $toDate) {
+                return $q2->whereBetween('created_at', [$fromDate, $toDate]);
+            })
+            ->paginate(10);
+        return view('user.order.list', $data);
+    }
+
+    public function orderDetails($orderId)
+    {
+        $data['orderDetails'] = ProductPurchase::select('id', 'purchase_details')->findOrFail($orderId);
+        return view('user.order.details', $data);
     }
 
 }
