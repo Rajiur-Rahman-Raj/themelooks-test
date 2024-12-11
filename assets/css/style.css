@@ -165,6 +165,9 @@ TABLE OF CONTENT
     border-color: #61ce70;
 }
 
+.form-control{
+    height: 40px !important;
+}
 
 /*------------ for notiflix ------------*/
 #Notiflix-Icon-Success,

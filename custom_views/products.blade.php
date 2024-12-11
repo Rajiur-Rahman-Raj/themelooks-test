@@ -12,7 +12,7 @@
 
                         <div class="card-body">
                             <div class="hrader-search-input select-option w-100 mb-4">
-                                <input type="text" class="soValue optionSearch" id="searchInput"
+                                <input type="text" class="soValue optionSearch productSearch" id="searchInput"
                                        placeholder="Search here" aria-label="Search">
                             </div>
 
@@ -25,7 +25,7 @@
                                                     <div class="new-arrival-image">
                                                         <a href="#"
                                                            class="productViewContent" data-id="1"
-                                                           data-title="{{ $product->name }}" data-price="500.00">
+                                                           data-title="{{ $product->name }}">
                                                             <img class="maxWidth"
                                                                  src="{{ asset('assets/uploads/product/'.$product->image) }}"
                                                                  alt="@lang('product_img')">
@@ -57,9 +57,7 @@
                                                 <div class="new-arrival-content">
                                                     <a href="#"
                                                        class="productViewContent" data-id="1"
-                                                       data-title="{{ $product->name }}"
-                                                       data-price="500.00"
-                                                       data-category="Men's Fashion"> {{ $product->name }}</a>
+                                                       data-title="{{ $product->name }}"> {{ $product->name }}</a>
                                                     @if ($product->show_product_discount)
                                                         <p><span>TK{{ number_format($product->selling_price) }}</span>
                                                             TK{{ $product->show_product_discount_price }}</p>
@@ -68,7 +66,7 @@
                                                     @endif
 
                                                 </div>
-                                                <input type="hidden" class="product_id" value="1">
+                                                <input type="hidden" class="product_id" value="{{ $product->id }}">
                                             </div>
                                         </div>
                                     @empty
@@ -95,15 +93,15 @@
                 <div class="shop-offcanvas-left">
                     <div class="card">
                         <div class="card-header border-0">
-                            <h5>Billing Details</h5>
+                            <h5>@lang('Billing Details')</h5>
                         </div>
 
 
                         <div class="card-body pt-0" id="card-body-message">
                             <div class="shop-left-aside">
-                                <!--Accordian Box-->
                                 <div class="accordion" id="accordionPanelsStayOpenExample">
-                                    <form action="{{ route('user.product.purchase') }}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('user.product.purchase') }}" method="post"
+                                          enctype="multipart/form-data">
                                         @csrf
 
                                         <table class="table table-bordered cart-table">
@@ -162,16 +160,11 @@
                                             </div>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -184,7 +177,7 @@
                         <div class="close-search theme-btn cart-modal-close"><span
                                 class="fal fa-times cart-modal-close"></span></div>
                         <div class="cart-single cart-single-1" id="quick_product_cart_view">
-                            <!--product details show here -->
+
                         </div>
                     </div>
                 </div>
@@ -199,12 +192,97 @@
     </script>
 @endif
 
-
 @push('script')
-
-
     <script>
         $(document).ready(function () {
+            $('#searchInput').on('keyup', function () {
+                let searchValue = $(this).val();
+                if (searchValue.length > 0) {
+                    $.ajax({
+                        url: "{{ route('products.search') }}",
+                        method: 'GET',
+                        data: {
+                            searchValue: searchValue,
+                        },
+                        success: function (response) {
+                            let productList = $('#product-list');
+
+                            productList.empty();
+
+                            if (response.products.length > 0) {
+                                $html = '';
+                                response.products.forEach(product => {
+                                    $html += `<div class="col-lg-4 col-md-6">
+                                        <div class="new-arrival-single">
+                                            <div class="new-arrival-image-container">
+                                                <div class="new-arrival-image">
+                                                    <a href="#" class="productViewContent"
+                                                       data-id="${product.id}"
+                                                       data-title="${product.name}"
+                                                       data-price="${product.selling_price}">
+                                                        <img class="maxWidth"
+                                                             src="{{ asset('assets/uploads/product') }}/${product.image}"
+                                                             alt="Product Image">
+                                                    </a>
+                                                </div>
+                                                ${product.show_product_discount ? `
+                                                    <div class="ribon-container">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="ribon ribon-red">${product.show_product_discount}</div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                ` : ''}
+                                                <div class="new-arrival-icon-list">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="javascript:void(0)" class="search-btn quickCart"
+                                                               data-product-id="${product.id}">
+                                                                <i class="fa-light fa-cart-shopping"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="new-arrival-content">
+                                                <a href="#" class="productViewContent"
+                                                   data-id="${product.id}"
+                                                   data-title="${product.name}"
+                                                   data-price="${product.selling_price}"
+                                                   data-category="Men's Fashion">
+                                                    ${product.name}
+                                                </a>
+                                                ${product.show_product_discount ? `
+                                                    <p>
+                                                        <span>TK${(parseFloat(product.selling_price).toFixed(2))}</span>
+                                                        TK${parseFloat(product.show_product_discount_price).toFixed(2)}
+                                                    </p>
+                                                ` : `
+                                                    <p>TK${parseFloat(product.selling_price).toFixed(2)}</p>
+                                                `}
+                                            </div>
+                                            <input type="hidden" class="product_id" value="${product.id}">
+                                        </div>
+                                    </div>`;
+                                });
+
+                                productList.append($html);
+
+                            } else {
+                                productList.append(`
+                                <div class="notFound text-center p-3 ">
+                                    <h5 class="mb-0 h5 mt-3 text-danger">Products not found</h5>
+                                </div>
+                            `);
+                            }
+                        },
+                    });
+                } else {
+                    location.reload();
+                }
+            });
+
 
             displayCart();
 
@@ -371,6 +449,5 @@
                 },
             });
         });
-
     </script>
 @endpush

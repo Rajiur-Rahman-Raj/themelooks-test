@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'ThemeLooks Test')
+@section('title', 'Add Product Form')
 @section('content')
     <div class="container">
         <div class="row m-auto d-flex justify-content-center mt-5">
@@ -10,7 +10,6 @@
                     </div>
 
                     <div class="card-body">
-
                         <div class="hrader-search-input select-option w-100 mb-4">
                             <form action="{{ route('admin.product.store') }}" method="post"
                                   enctype="multipart/form-data">
@@ -103,7 +102,6 @@
                                     <div id="createdOptionValue">
 
                                     </div>
-
                                 </div>
 
 
@@ -146,7 +144,6 @@
                                 <button type="submit" class="btn btn-1">Submit</button>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -186,8 +183,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
 
                             <div class="row">
@@ -201,8 +196,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -365,13 +358,11 @@
             let variantIndex = newVariantsComObj.findIndex(variant => variant.variant_name === variantName);
 
             if (variantIndex !== -1) {
-                // Update the specific variant
                 newVariantsComObj[variantIndex].purchase_price = modalPurchasePrice;
                 newVariantsComObj[variantIndex].selling_price = modalSellingPrice;
                 newVariantsComObj[variantIndex].variants_sku = modalVariantSku;
 
                 $('#combinationModals').modal('hide');
-
             }
 
             localStorage.setItem('variantsComObj', JSON.stringify(newVariantsComObj));
@@ -383,8 +374,6 @@
 
         });
 
-
-        // function
         function renderVariantFromLocalStorage() {
             $('#generate-variant-options').html('');
             var newAraaar = JSON.parse(localStorage.getItem('variantsItem')) ?? [];
@@ -441,6 +430,7 @@
                     </div>
                 </div>`;
             })
+
             $('#generate-variant-options').append($html);
         }
 

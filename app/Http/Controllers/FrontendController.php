@@ -13,6 +13,28 @@ class FrontendController extends Controller
         return view('products', $data);
     }
 
+
+    public function productSearch(Request $request){
+        $search = $request->searchValue;
+
+        $products = Product::where('name', 'LIKE', "%$search%")
+            ->orWhere('sku', 'LIKE', "%$search%")
+            ->get()
+            ->map(function ($product) {
+                return [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'sku' => $product->sku,
+                    'image' => $product->image,
+                    'selling_price' => $product->selling_price,
+                    'show_product_discount' => $product->show_product_discount, // Include accessor value
+                    'show_product_discount_price' => $product->show_product_discount_price, // Include if required
+                ];
+            });
+
+        return response()->json(['products' => $products]);
+    }
+
     public function productCartView(Request $request)
     {
         $product = Product::with('variants')->findOrFail($request->product_id);
